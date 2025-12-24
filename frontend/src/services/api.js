@@ -79,5 +79,22 @@ export const dashboardAPI = {
   getCandidateDetail: (id) => api.get(`/dashboard/candidates/${id}`),
 }
 
+// Application API
+export const applicationAPI = {
+  create: (applicationData) => api.post('/applications/', applicationData),
+  getAll: (params) => api.get('/applications/', { params }),
+  getById: (id) => api.get(`/applications/${id}`),
+  uploadCV: (id, file) => {
+    const formData = new FormData()
+    formData.append('file', file)
+    return api.post(`/applications/${id}/upload-cv`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+  },
+  accept: (id) => api.post(`/applications/${id}/accept`),
+  reject: (id) => api.post(`/applications/${id}/reject`),
+  update: (id, data) => api.patch(`/applications/${id}`, data),
+}
+
 export default api
 

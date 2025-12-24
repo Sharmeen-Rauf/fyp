@@ -27,6 +27,7 @@ const drawerWidth = 240
 const menuItems = [
   { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
   { text: 'Candidates', icon: <PeopleIcon />, path: '/candidates' },
+  { text: 'Apply for Job', icon: <VideoCallIcon />, path: '/apply' },
 ]
 
 function Layout() {

@@ -26,6 +26,7 @@ class Interview(Base):
     candidate_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     hr_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     role = Column(String, nullable=False)  # Job role (e.g., "developer", "designer")
+    application_id = Column(Integer, ForeignKey("applications.id"), nullable=True)  # Link to application
     status = Column(Enum(InterviewStatus), default=InterviewStatus.SCHEDULED)
     scheduled_at = Column(DateTime(timezone=True))
     started_at = Column(DateTime(timezone=True))
@@ -35,6 +36,7 @@ class Interview(Base):
     
     # Relationships
     candidate = relationship("User", foreign_keys=[candidate_id])
+    application = relationship("Application", back_populates="interview")
     responses = relationship("InterviewResponse", back_populates="interview", cascade="all, delete-orphan")
 
 

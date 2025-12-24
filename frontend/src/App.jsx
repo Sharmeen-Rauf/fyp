@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard'
 import InterviewRoom from './pages/InterviewRoom'
 import CandidateList from './pages/CandidateList'
 import CandidateDetail from './pages/CandidateDetail'
+import ApplicationForm from './pages/ApplicationForm'
 
 const theme = createTheme({
   palette: {
@@ -36,6 +37,7 @@ function App() {
             <Route path="interview/:interviewId" element={<InterviewRoom />} />
             <Route path="candidates" element={<CandidateList />} />
             <Route path="candidates/:interviewId" element={<CandidateDetail />} />
+            <Route path="apply" element={<ApplicationForm />} />
           </Route>
         </Routes>
       </Router>
